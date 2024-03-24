@@ -4,10 +4,11 @@ from shlex import join
 from fastapi import APIRouter, Depends,Request,Response, BackgroundTasks
 
 
-from sqlalchemy import BIGINT, BigInteger, select, Computed
+from sqlalchemy import BIGINT, BigInteger, Result, select, Computed
 from app.database import async_session_maker
 from app.account.models import User_accounts
 from app.account.dao import AccountsDAO
+from app.users.dao import UsersDAO
 from app.account.schemas import SAccounts, SAccounts_balance,SAccounts_interest_rate
 from app.users.dependencies import get_current_user
 from app.users.models import Users
@@ -32,7 +33,7 @@ async def add_account(
     account = await AccountsDAO.add(
         # id= user.id,
 
-       # username_acc= user.email,
+       username_acc= user.email,
         accounts = str(''.join(['408018101100',(str(1000000 - random.randint(0, 9999)))])),
         balance=account.balance,
         #interest_rate=account.interest_rate,
@@ -47,6 +48,7 @@ async def add_account(
    # background_tasks: BackgroundTasks,
     user: Users = Depends(get_current_user),
 ):
+    
     account = await AccountsDAO.update(
          id= user.id,
 
@@ -61,11 +63,15 @@ async def add_account(
 
 
 @router_account.get("/")
-async def get_accounts(user: Users= Depends (get_current_user)):
+async def get_accounts(
+    #username_acc= user.email,
+    user: Users= Depends (get_current_user)
+):
      
-     
-     return await AccountsDAO.find_one_or_none(email=user.email)
 
+     accounts = await AccountsDAO.find_by_email(User_accounts.username_acc==user.email)
+
+     return accounts
     
 
 
