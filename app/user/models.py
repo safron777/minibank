@@ -31,6 +31,6 @@ class Users(Base):
     surname: Mapped [str] = mapped_column(nullable=False)
     password: Mapped [str] = mapped_column(nullable=False)
 
-    user_accounts: Mapped[list["User_accounts"]] = relationship(back_populates="username_acc")
+   # user_accounts: Mapped[list["User_accounts"]] = relationship(back_populates="username_acc")
     
 
