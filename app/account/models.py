@@ -31,5 +31,5 @@ class User_accounts(Base):
    interest_rate: Mapped [float]=mapped_column(nullable=True)
    data_time: Mapped[date]= mapped_column(nullable=False)
    #data_time: Mapped[date]= mapped_column()
-   username_acc: Mapped[str]= mapped_column(ForeignKey("users.email"),primary_key=True, unique=True)
-   username_acc: Mapped["Users"] = relationship(back_populates="user_accounts")
+   username_acc: Mapped[str]
+   #usernam: Mapped["Users"] = relationship(back_populates="user_accounts")
