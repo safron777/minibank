@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+
+
+
+
+
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +29,9 @@
                 <td>{{accounts.balance}}</td>
                 <td>{{accounts.interest_rate}}</td>
                 <td>{{accounts.username_acc}}</td>
-                <td><a>Пополнить счет</a></td>
+                
+                <td><a href="/pages/account-increase?account_one={{accounts.accounts}}">Пополнить счет с карты  </a></td>
+                <td><a href="/pages/account-increase?account_one={{accounts.accounts}}">Пополнить счет</a></td>
 
             </tr>
         

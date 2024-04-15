@@ -17,7 +17,7 @@ class User_accounts(Base):
    __tablename__="user_accounts"
   
 
-   id: Mapped[int] = mapped_column(primary_key=True)
+   id: Mapped[int] = mapped_column(primary_key=True, autoincrement=False)
    
   
    accounts: Mapped[str]= mapped_column(nullable=False)

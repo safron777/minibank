@@ -4,6 +4,7 @@ from fastapi import APIRouter, Depends, Request
 from fastapi.responses import HTMLResponse
 from fastapi import templating
 from app import pages
+from app.account.dao import AccountsDAO
 
 from app.account.router import account_add, get_accounts
 from app.users.dependencies import get_current_user
@@ -49,6 +50,14 @@ async def get_add_accounts(
     users= Depends(get_current_user)):
    return templates.TemplateResponse("account/add-account.html", {"request": request, "users":users})
 
+
+@router.get("/account-increase", response_class=HTMLResponse)
+async def get_accounts_increase(
+   account_one: str,
+    request: Request,
+    users= Depends(get_current_user)):
+   acc1 = await AccountsDAO.find_one_or_none (accounts = account_one)
+   return templates.TemplateResponse("account/account-increase.html", {"request": request, "users":users, "accounts":acc1})
 
 """""        
 @router.post("/add-account",response_class=HTMLResponse)
