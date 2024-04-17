@@ -1,0 +1,5 @@
+{
+    "git.alwaysShowStagedChangesResourceGroup": true,
+    "explorer.excludeGitIgnore": true,
+    "search.useParentIgnoreFiles": true
+}
