@@ -16,7 +16,7 @@ services:
     image: postgres:15
     container_name: minibank_db
     #volumes:
-     # - postgresdata:/var/lib/postgresql/data
+    #  - postgresdata:/var/lib/postgresql/data
     env_file: # Файл с переменными окружения (Вместо environment)
       - .env-non-dev
     restart: always  
@@ -34,11 +34,12 @@ services:
     depends_on: # Запускаем только после запуска БД и Redis (depends on = зависит от)
       - db
       
-    # Если не работает эта команда, используйте закомментированную
-    # command: ["/booking/docker/app.sh"]
-    command: sh -c "alembic upgrade head && gunicorn app.main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind=0.0.0.0:8000"
+    # Если не работает эта команда
+    command: ["/minibank/docker/app.sh"]
+    #command: sh -c "alembic upgrade head && gunicorn app.main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind=0.0.0.0:8000"
     ports:
       - 7777:8000
+    restart: always
 
 
 
