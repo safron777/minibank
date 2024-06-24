@@ -1,0 +1,14 @@
+[
+    {
+        "email": "test@test.com",
+        "balance":"100000",
+        "interest_rate":"10",
+        "hashed_password": "$2b$12$ib8N/MddMjSxNs4UOF69c.KuO4CyglQHcNATYpHcKJJn5rbltYNFG"
+    },
+    {
+        "email": "test1@example.com",
+        "balance":"990000",
+        "interest_rate":"5",
+        "hashed_password": "$2b$12$SwAOsDqK7tjnvIcjlTAUvuX6K4xv/zUvqp8Y2oSCtqVv4f/XCB2Bi"
+    }
+]
