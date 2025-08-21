@@ -7,5 +7,3 @@ source venv/bin/activateg
 docker-compose down --volumes
 
 docker system prune -a 
-
-python -m pytest 
