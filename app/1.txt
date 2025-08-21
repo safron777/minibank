@@ -9,13 +9,3 @@ docker-compose down --volumes
 docker system prune -a 
 
 python -m pytest 
-
-Проверьте активацию виртуального окружения:
-Убедитесь, что в терминале видно (venv) перед prompt. Если нет - активируйте вручную:
-
-bash
-source venv/bin/activate
-Переустановите зависимости (если есть requirements.txt):
-
-bash
-pip install -r requirements.txt
